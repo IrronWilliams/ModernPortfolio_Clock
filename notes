@@ -1,0 +1,35 @@
+Project Purpose: Javascript will take the current time and update the hands on the clock based on hour, minute, second. 
+
+Created a div for the clock. Within clock div, created another div for the clock face. Within clock face div, created div for the hour hand,
+minute hand and second hand. The goal is to apply a rotate to each of the hand depending upon the time. Can apply transform:rotate(xdeg) 
+for this. By default, the hand will rotate itself on the exact middle of the element. In most cases, this is what I want but not for this
+project. I want to rotate the arm on the right hand side. Can fix this with CSS. 
+
+In CSS, create .hand and transform the origin. The origin is where the hand is going to do its rotation off of. Can say 
+transform-origin:100%. The 100% on the x axis will put the pivot point on the very right hand side. The change in % origin moves the 
+pivot point handle. 
+
+Next challenge is the divs are block and go left to right, so the hands will not start at 12'oclock. Can fix this issue with 
+transform:rotate(90deg). This will make all of the hand point up and down. 
+
+Next want to apply a bit of a transition. Can use transition: all 0.05s. This will tick the hand every second.
+
+Next prepare Javascript for the hands. Begin with second hand. Create a function called setDate and console.log('hi'). Need the function
+to run every second. Can do this with setInterval() method. setInterval(setDate, 1000) method will call the setDate function and run 1000
+milliseconds or every second. Confirm hi is being consoled every second. Now create variable for the seconds. This will be the seconds of 
+the current minute. Now need to turn the seconds into a degree (transform: rotate(90deg) rotates the arm on clock). To begin, need to 
+turn the seconds into a base of 100. So second at 0% will = 0 degrees and second at 100% will = 360 degrees. Create a variable called 
+secondsDegree and the equation will be (seconds/60 *360). seconds/60 will provide the % that I need 360 is the full scale. So 60/60 = 1
+and multiply that by 360 will equal 360 degrees. 
+
+Next style the seconds hand. Begin by using querySelector('.second-hand') to find the class second-hand and put result in a variable. This 
+puts the div with class=second-hand in the variable. Can now begin to style the secondHand variable in the function. Once the secondHand has 
+been styled, the hand works but needs adjusting. When seconds tick to 45, 50 seconds, the hand doesn't display that accurately on the 
+clock. This is because of the transform: rotate(90deg) which served to offset the default left to right of div and to make the hand 
+point in the up/down direction. Can fix this by adding 90 secondsDegree variable to offset the default 90 provided to transform/rotate. 
+
+
+
+The seconds of the 
+
+
